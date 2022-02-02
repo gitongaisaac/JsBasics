@@ -292,7 +292,7 @@ todos.forEach((todo) => console.log(todo))
 /*
  * OBJECT ORIENTED JAVASCRIPT
 */
-// Constructor Function
+// Constructor Function ES5
 function Person(firstName, lastName, dob, state) {
     this.firstName = firstName;
     this.lastName = lastName;
@@ -318,9 +318,59 @@ console.log(person1.getFullName());
 console.log(person2.getState());
 
 
+function Book(title, author, topic, year) {
+    this.title = title;
+    this.author = author;
+    this.topic = topic;
+    this.year = year;
+}
 
-/* Es6 */
-/* class */
+Book.prototype.getSummary = function() {
+    return `${this.title} was written by ${this.author} in ${this.year}, it is about ${this.topic}`;
+}
+
+Book.prototype.getAge = function() {
+    const years = new Date().getFullYear() - this.year;
+    return `${this.title} is ${years} years old`
+}
+
+// Revise / change year
+Book.prototype.revise = function(newYear) {
+    this.year = newYear;
+    this.revised = true;
+}
+
+ // Instantiate
+const book1 = new Book('Rich Dad Poor Dad', 'Rober Kiyosaki', 'finance', '1966');
+const book2 = new Book('Think and Grow Rich', 'Napolean Hill', 'finance', '1974');
+const book3 = new Book('Unlock It', 'Dan Lock', 'finance', '1996');
+
+console.log(book1);
+book2.revise('2018');
+console.log(book2);
+
+// Magazine Constructor
+function Magazine(title, author, topic, year, month) {
+    this.month = month;
+    Book.call(this, title, author, topic, year);
+}
+
+// Inherit prototype
+Magazine.prototype = Object.create(Book.prototype);
+
+// Instantiate Magazine Object
+const mag1 = new Magazine('mag One', 'John Doe', 'finance', '2018', 'January');
+
+// Use Magazine Constructor
+Magazine.prototype.constructor = Magazine;
+
+console.log(mag1);
+console.log(mag1.getSummary());
+
+
+
+
+/* ES6 Class */
 /* A method is  function inside a class */
 class Employee {
     constructor(firstName, lastName, position, department, state) {
@@ -336,14 +386,67 @@ class Employee {
     }
 
     getDepartment() {
-    return `${this.firstName} ${this.lastName} ${this.department}`;
-}
+    return `${this.firstName} ${this.lastName} is the manager in the ${this.department} department`;
+    }
 }
 
 const employee1 = new Employee('John', 'Doe', 'Manager', 'Managment', 'Texas')
 const employee2 = new Employee('Mary', 'Jane', 'Head of Sales', 'Sales Department', 'Texas')
 
+console.log(employee1)
 console.log(employee1.getDepartment());
+
+
+
+class Books {
+    cosnstructor(title, author, year) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
+    }
+
+    getSummary() {
+        return `${this.title} was written by ${this.author} in ${this.year}`;
+    }
+
+    getAge() {
+        const years = new Date().getFullYear() - this.year;
+        return `${this.title} is ${years} years old`;
+    }
+
+    revise(newYear) {
+        this.year = newYear;
+        this.revised = true;
+    }
+
+    static topBookStore() {
+        return 'Barnes $ Noble';
+    }
+}
+
+// Magazine Subclass
+class Magazines extends Books {
+    constructor(title, author, year, month) {
+        super(title,author, year);
+        this.month =  month;
+    }
+}
+
+ // Instantiate
+ const book4 = new Books('Rich Dad Poor Dad', 'Rober Kiyosaki', 'finance', '1966');
+ const book5 = new Books('Think and Grow Rich', 'Napolean Hill', 'finance', '1974');
+ const book6 = new Books('Unlock It', 'Dan Lock', 'finance', '1996');
+
+ //Instantiate Magazine
+ const mag2 = new Magazines('Mag one', 'John Doe', '2018', 'Jan');
+
+console.log(book4);
+book5.revise('2018');
+console.log(book5);
+console.log(mag2)
+console.log(mag2.getSummary())
+
+console.log(Books.topBookStore());
 
 
 
@@ -393,7 +496,7 @@ const emailInput = document.querySelector ('#email');
 const msg = document.querySelector ('.msg');
 const userList = document.querySelector ('#users');
 
-myForm.addEventListener('submit', onSubmit);
+myForm.addEventListener('submit', onSubmit); 
 
 function onSubmit(e) {
     e.preventDefault();
