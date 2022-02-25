@@ -1,19 +1,44 @@
 let name = 'isaac';
 console.log(name);
+
 let fName = 'Isaac';
 let lName = 'Karimi';
-console.log(fName + ' ' + lName)
+
+// String concatenation
+let fullName = fName + ' ' + lName;
+console.log(fullName)
+console.log(fullName[0])
 console.log(typeof name)
 
-// Cannot be a reseerved keyword
-// Should be meaningful
-// Cannot start with a number
-// Cannot contain a space or hyphen
-// Are case-sensitive
+// Type Conversion
+let score = '100';
+score = Number(score);
+score = String(score);
+console.log(score + 1);
+
+// String Methods
+console.log(fullName.toUpperCase());
+// toLowerCase();
+// indexOf();
+// Slice(2,5);
+// substr(5,10);
+// replace('m', 'w')
+
+// Math Operators
+// +, -, *, \, **, %
+// ** - means to the power of
+// % - is the modulus
+
+let likes = 10;
+// likes = likes + 10;
+likes += 10;
+console.log(likes);
+
+// Comparison Operator
+console.log(likes == 10);
 
 /* constants */
 const intrestRate = 0.3;
-// intrestRate = 1; /* This gives an error because you cannot assign to a constant */
 console.log('The intrest rate is:' + ' ' + intrestRate);
 
 /* Primitive Types */
@@ -24,6 +49,21 @@ let isApproved = false; // Boolean literal
 let firstcustomer = undefined; // The undefined value can be set as shown or as this; let firstName = ;
 let selectedColor = null;
 
+
+
+
+/* Arrays and array methods */
+let fruits = ['apples', 'oranges', 'pears'];
+    fruits[3] = 'grapes';
+    fruits.push('mangoes');
+    fruits.unshift('strawberries');
+    fruits.pop();
+
+console.log(fruits.join(','));
+console.log(fruits.concat(['Ken', 'Crystal']));
+console.log(Array.isArray('hello'));
+console.log(fruits.indexOf('oranges'));
+console.log(fruits)
 
 
 
@@ -50,12 +90,21 @@ console.log(person.address.street);
 const {firstName, lastName, address: {city}} = person;
 console.log(city);
 
+//Dot Notation
+person.name = 'Gilbert';
+console.log(person.name)
+
+//Bracket notation
+let selection = 'name';
+person[selection] = 'Mary';
+
+console.log(person.name);   
 
 
 
 
 /* Objects in arrays */
-const todos = [
+let todos = [
     {
         id: 1,
         text: 'Take out trash',
@@ -82,43 +131,13 @@ console.log(todoJSON);
 
 
 
-//Dot Notation
-person.name = 'Gilbert';
-console.log(person.name)
-
-//Bracket notation
-let selection = 'name';
-person[selection] = 'Mary';
-
-console.log(person.name);   
-
-
-
-
-
-/* Arrays and array methods */
-const fruits = ['apples', 'oranges', 'pears'];
-fruits[3] = 'grapes';
-fruits.push('mangoes');
-fruits.unshift('strawberries');
-fruits.pop();
-
-console.log(Array.isArray('hello'));
-console.log(fruits.indexOf('oranges'));
-console.log(fruits)
-
-
-
-
-
 /* Functions and parameters */
 function greet(name, lastName) {
     console.log('Hello ' + name + ' ' + lastName);
 }
-
-greet('John', 'Smith');
-greet('Mary', 'Jay');
-greet('Kris', 'Morgan');
+    greet('John', 'Smith');
+    greet('Mary', 'Jay');
+    greet('Kris', 'Morgan');
 
 function square(number) {
     return number * number; 
@@ -130,7 +149,7 @@ console.log(square(2))
 console.log('My name is ' + name + ' and i am ' + agee );
 
 /* Template String  */
-const greetings = `My name is ${name} and i am ${agee}`;
+let greetings = `My name is ${name} and i am ${agee}`;
 console.log(greetings);
 
 
@@ -430,7 +449,7 @@ class Magazines extends Books {
         super(title,author, year);
         this.month =  month;
     }
-}
+} 
 
  // Instantiate
  const book4 = new Books('Rich Dad Poor Dad', 'Rober Kiyosaki', 'finance', '1966');
