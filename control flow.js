@@ -64,8 +64,31 @@ else {
     console.log('Your password is valid')
 }
 
+/* ===== Logical NOT (!) ===== */
+let user = false;
 
+if(!user) {
+    console.log('You must be logged in to continue');
+}
 
+console.log(!true);
+console.log(!false);
 
+/* ===== Break and continues ===== */
+const scores = [50, 25, 0, 30, 100, 20, 10];
 
+for(let i = 0; i < scores.length; i++) {
 
+    if(scores[i] === 0) {
+        continue;
+    }
+}
+
+for(let i = 0; i < scores.length; i++) {
+    console.log('Your score: ', scores[i]);
+
+    if(scores[i] === 100) {
+        console.log('congrats, you got the top score!');
+        break;
+    }
+}

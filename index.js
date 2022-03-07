@@ -1,22 +1,30 @@
+/* 
+================================================================================================================================
+================================================================================================================================
+Introduction
+================================================================================================================================
+================================================================================================================================
+*/
+
 let name = 'isaac';
 console.log(name);
 
 let fName = 'Isaac';
 let lName = 'Karimi';
 
-// String concatenation
+/* ===== String concatenation ===== */
 let fullName = fName + ' ' + lName;
 console.log(fullName)
 console.log(fullName[0])
 console.log(typeof name)
 
-// Type Conversion
+/* ===== Type Convertion ===== */
 let score = '100';
 score = Number(score);
 score = String(score);
 console.log(score + 1);
 
-// String Methods
+/* ===== String Methods ===== */
 console.log(fullName.toUpperCase());
 // toLowerCase();
 // indexOf();
@@ -24,7 +32,7 @@ console.log(fullName.toUpperCase());
 // substr(5,10);
 // replace('m', 'w')
 
-// Math Operators
+/* ===== Math Operators ===== */
 // +, -, *, \, **, %
 // ** - means to the power of
 // % - is the modulus
@@ -34,14 +42,15 @@ let likes = 10;
 likes += 10;
 console.log(likes);
 
-// Comparison Operator
+/* ===== Comparison operator ===== */
+// When the comparison operators are 2
 console.log(likes == 10);
 
-/* constants */
+/* ===== constant ===== */
 const intrestRate = 0.3;
 console.log('The intrest rate is:' + ' ' + intrestRate);
 
-/* Primitive Types */
+/* ===== primitive types ===== */
 // Stiring, Number, Boolean, Undefined and null
 let customer = 'Gilbert '; // Sring Literal
 let agee = 20; //Number Literal
@@ -49,10 +58,12 @@ let isApproved = false; // Boolean literal
 let firstcustomer = undefined; // The undefined value can be set as shown or as this; let firstName = ;
 let selectedColor = null;
 
+/* 
+================================================================================================================================
+Array and Array Methods
+================================================================================================================================
+*/
 
-
-
-/* Arrays and array methods */
 let fruits = ['apples', 'oranges', 'pears'];
     fruits[3] = 'grapes';
     fruits.push('mangoes');
@@ -65,10 +76,12 @@ console.log(Array.isArray('hello'));
 console.log(fruits.indexOf('oranges'));
 console.log(fruits)
 
+/* 
+================================================================================================================================
+Objects
+================================================================================================================================
+*/
 
-
-
-/* Objects */
 let person = {
     firstName: 'John',
     lastName: 'Doe',
@@ -90,20 +103,22 @@ console.log(person.address.street);
 const {firstName, lastName, address: {city}} = person;
 console.log(city);
 
-//Dot Notation
+/* ===== Dot Notation ===== */
 person.name = 'Gilbert';
 console.log(person.name)
 
-//Bracket notation
+/* ===== Braket Notation ===== */
 let selection = 'name';
 person[selection] = 'Mary';
 
 console.log(person.name);   
 
+/* 
+================================================================================================================================
+Arrays in object
+================================================================================================================================
+*/
 
-
-
-/* Objects in arrays */
 let todos = [
     {
         id: 1,
@@ -127,11 +142,12 @@ console.log(todos[1].text)
 const todoJSON = JSON.stringify(todos);
 console.log(todoJSON);
 
+/* 
+================================================================================================================================
+Function and parameters
+================================================================================================================================
+*/
 
-
-
-
-/* Functions and parameters */
 function greet(name, lastName) {
     console.log('Hello ' + name + ' ' + lastName);
 }
@@ -145,31 +161,37 @@ function square(number) {
 
 console.log(square(2))
 
-/* Concatenation */
+/* ===== Concatenation ===== */
 console.log('My name is ' + name + ' and i am ' + agee );
 
 /* Template String  */
 let greetings = `My name is ${name} and i am ${agee}`;
 console.log(greetings);
 
+/* 
+================================================================================================================================
+Loops
+================================================================================================================================
+*/
 
-
-
-
-/* Loops */
-/* For Loop */
+/* ===== For Loops ===== */
 for(let i = 0; i <= 3; i++) {
     console.log(`For Loop Number: ${i}`);
 }
 
-/* While Loop */
+/* ===== While Loop ===== */
 let i = 0;
 while(i < 4) {
     console.log(`while Loop Number: ${i}`);
     i++;
 }
 
-/* Looping through arrays */
+/* 
+================================================================================================================================
+Looping through Arrays
+================================================================================================================================
+*/
+
 const tasks = [
     {
         id: 1,
@@ -188,18 +210,23 @@ const tasks = [
     }
 ];
 
-/* For Loop on an array */
+/* ===== For Loop on an array ===== */
 for (let i = 0; i < tasks.length; i++) {
     console.log(todos[i].text)
 }
 
-/* For of loop */
+/* ===== For of Loop ===== */
 for(let task of tasks) {
     console.log(task.text)
 }
 
-/* High order array methods */
-// forEach, map, filter
+/* 
+================================================================================================================================
+High Order Array Methods
+================================================================================================================================
+*/
+
+/* ===== forEach, map, filter ===== */
  let employees = [
      {
          id: 1,
@@ -235,18 +262,18 @@ for(let task of tasks) {
     }
  ]
 
-//forEach
+/* ===== forEach ===== */
 employees.forEach(function(employee) {
  console.log(employee.age)
 });
 
-//Map
+/* ===== maps ===== */
 const emDep = employees.map(function(employee) {
     return employee.department;
 });
 console.log(emDep);
 
-//filter
+/* ===== filter ===== */
 const empSex = employees.filter(function(employee) {
     return employee.sex === 'Male';
 });
@@ -259,7 +286,12 @@ return employee.age > 40;
 })
 console.log(empAge)
 
-/* conditional */
+/* 
+================================================================================================================================
+Conditionals
+================================================================================================================================
+*/
+
 let x = 20;
 
 if(x === 10) {
@@ -277,7 +309,12 @@ else {
 // ? - Then
 // : - Else
 
-/* Ternary operater */
+/* 
+================================================================================================================================
+Ternary Operators  // Switch statement
+================================================================================================================================
+*/
+
 let y = 11;
 let color = x > 10 ? 'red' : 'blue';
 
@@ -295,7 +332,12 @@ switch(color) {
         break;
 }
 
-/* function */
+/* 
+================================================================================================================================
+Function
+================================================================================================================================
+*/
+
 function addNums(num1, num2) {
     return num1 + num2;
 }
@@ -307,11 +349,15 @@ console.log(addNum(5, 10))
 todos.forEach((todo) => console.log(todo))
 
 
-
-/*
- * OBJECT ORIENTED JAVASCRIPT
+/* 
+================================================================================================================================
+================================================================================================================================
+OBJECT ORIENTED JAVASCRIPT
+================================================================================================================================
+================================================================================================================================
 */
-// Constructor Function ES5
+
+/* ===== Constructor Function ES6 ===== */
 function Person(firstName, lastName, dob, state) {
     this.firstName = firstName;
     this.lastName = lastName;
@@ -327,7 +373,7 @@ Person.prototype.getState = function() {
     return `${this.firstName} ${this.lastName}  ${this.state}`;
 }
 
-//Instantiate object
+// Instantiate object
 const person1 = new Person('John', 'Doe', '3/4/1980', 'West Virginia');
 const person2 = new Person('Mary', 'Joe', '4/6/1980', 'New Orleans');
 
@@ -389,7 +435,12 @@ console.log(mag1.getSummary());
 
 
 
-/* ES6 Class */
+/* 
+================================================================================================================================
+ES6 Class
+================================================================================================================================
+*/
+
 /* A method is  function inside a class */
 class Employee {
     constructor(firstName, lastName, position, department, state) {
@@ -469,18 +520,22 @@ console.log(Books.topBookStore());
 
 
 
-/*============ 
-    Dom
-============== */
+/* 
+================================================================================================================================
+================================================================================================================================
+DOM - Document Object Model
+================================================================================================================================
+================================================================================================================================
+*/
 /* DOM - Document Object Model */
 
-// Single element selectors
+/* ===== Single Element Selectors ===== */
 // console.log(document.getElementById('my-form'));
 
 const h1 = document.querySelector('h1')
     console.log(h1) 
 
-// Multiple element selectors
+/* ===== Multiple element selectors ===== */
 // console.log(document.getElementsByClassName('item'));
 // console.log(document.getElementsByTagName('item')); 
 console.log(document.querySelectorAll('.item')); // This is the best. In the land of myth of
@@ -490,7 +545,7 @@ const items = document.querySelectorAll('.item');
     items.forEach(item => console.log(item))
 
 
-/* Manipulating the DOM */
+/* ===== Manipulating the dom ===== */
 const ul = document.querySelector('.items');
 
 // ul.remove();
